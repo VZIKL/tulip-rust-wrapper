@@ -1,0 +1,19 @@
+[package]
+name = "tulip-rust-wrapper"
+version = "0.1.0"
+edition = "2021"
+authors = ["VZIKL cvzikl@gmail.com"]
+
+description = "Rust wrapper for tulipindicators"
+readme = "README.md"
+
+keywords = ["technical-analysis", "indicator", "trading", "financial-market"]
+
+categories = ["api-bindings"]
+
+license-file = "LICENSE"
+
+[dependencies]
+
+[build-dependencies]
+bindgen = "0.69.4"
