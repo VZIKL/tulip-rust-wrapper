@@ -14,7 +14,7 @@ Add the following dependency in your `Cargo.toml` file:
 
 ```toml
 [dependencies]
-tulip-rust-wrapper = "0.0.1"
+tulip-rust-wrapper = "0.1.0"
 ```
 
 ```rust

@@ -6,7 +6,7 @@ fn sma(period: u32, close_prices: &Vec<TC_REAL>) -> (Vec<TC_REAL>,i32) {
     let mut out: Vec<TC_REAL>;
     let options :Vec<f64> = vec![period as f64];
     let const_out_ptr;
-    let const_input_ptr : *const f64 = &close_prices[0];
+    let const_input_ptr : *const f64 = close_prices.as_ptr();
     let start;
     let ret_code ;
     let output_length;
@@ -19,7 +19,7 @@ fn sma(period: u32, close_prices: &Vec<TC_REAL>) -> (Vec<TC_REAL>,i32) {
         ret_code = ti_sma(
             close_prices.len() as i32,
             &const_input_ptr,
-            &options[0] ,
+            options.as_ptr() ,
             &const_out_ptr
         );
         out = std::slice::from_raw_parts_mut(const_out_ptr, output_length).to_vec();
