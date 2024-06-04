@@ -9,7 +9,12 @@ fn main() {
         .canonicalize()
         .expect("cannot canonicalize vendor path");
 
-    println!("cargo:rustc-link-lib=libindicators");
+    if cfg!(target_os = "linux") {
+        println!("cargo:rustc-link-lib=indicators");
+    }
+    if cfg!(target_os = "windows") {
+        println!("cargo:rustc-link-lib=libindicators");
+    }
     println!("cargo:rustc-link-search={}", libdir_path.to_str().unwrap());
 
     let bindings = bindgen::Builder::default()
