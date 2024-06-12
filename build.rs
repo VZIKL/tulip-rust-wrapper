@@ -18,6 +18,11 @@ fn main() {
     println!("cargo:rustc-link-search={}", libdir_path.to_str().unwrap());
 
     let bindings = bindgen::Builder::default()
+        .blocklist_item("FP_NAN")
+        .blocklist_item("FP_INFINITE")
+        .blocklist_item("FP_ZERO")
+        .blocklist_item("FP_SUBNORMAL")
+        .blocklist_item("FP_NORMAL")
         .header("wrapper.h")
         .rustified_enum(".*")
         .generate()
