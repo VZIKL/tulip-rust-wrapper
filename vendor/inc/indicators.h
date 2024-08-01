@@ -50,10 +50,13 @@
 
 
 #ifndef TI_SKIP_SYSTEM_HEADERS
+#ifdef __APPLE__
+#else
 #include <math.h>
 #include <assert.h>
 #include <string.h>
 #include <stdlib.h>
+#endif
 #endif
 
 

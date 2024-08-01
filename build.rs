@@ -4,7 +4,6 @@ use std::env;
 use std::path::PathBuf;
 
 fn main() {
-
     let libdir_path = PathBuf::from("vendor/lib")
         .canonicalize()
         .expect("cannot canonicalize vendor path");
@@ -14,6 +13,9 @@ fn main() {
     }
     if cfg!(target_os = "windows") {
         println!("cargo:rustc-link-lib=libindicators");
+    }
+    if cfg!(target_os = "macos") {
+        println!("cargo:rustc-link-lib=indicatorsmacos");
     }
     println!("cargo:rustc-link-search={}", libdir_path.to_str().unwrap());
 
